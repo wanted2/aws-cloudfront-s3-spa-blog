@@ -19,9 +19,18 @@ Services you will need access:
 * Cloudfront
 
 # Deployment
+You will need [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html) for the deployment.
 
 * Step 1: Using CloudFormation to deploy the template. 
+```
+$ aws cloudformation deploy \
+  --template-file serverless.cf.yaml \
+  --stack-name myblog-spa
+```
 * Step 2: Upload the content in `www` to S3.
+```
+$ aws s3 cp www/index.html <your_s3_bucket_in_step_1>
+```
 * In the AWS Cloudfront console, you will find the Cloudfront domain name to access your deployed website.
 
 # Contact
